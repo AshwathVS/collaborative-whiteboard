@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <script src="index.js"></script>
+        <style>
+            .error {
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <p>Enter room id: </p> <input id="txtRoomId" type="text">
+            <p class="error" id="roomError" hidden>Please enter a valid room id</p>
+
+            <p>Enter name: </p> <input type="text" id="txtName">
+            <p class="error" id="nameError" hidden>Please enter a valid name</p>
+
+        </div>
+        <br>
+        <button id='btnSubmit' onclick="submit()">Submit</button>
+    </body>
+</html>

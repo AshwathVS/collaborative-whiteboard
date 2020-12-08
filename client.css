@@ -1,0 +1,95 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 13px;
+    font-family: sans-serif;
+    color: #333;
+    background-color: #eee;
+}
+
+h1 {
+    text-align: center;
+}
+
+#wrapper {
+    width: 1600px;
+    /* margin: 0.5em auto; */
+    display: flex;
+}
+
+#canvases {
+    flex-grow: 1;
+    position: relative;
+}
+
+#drawing-canvas, #preview-canvas {
+    position: absolute;
+    z-index: 1;
+    border: 1px solid #ccc;
+}
+
+#drawing-canvas {
+    background-color: #fff;
+    z-index: 0;
+}
+
+#selected-color {
+    height: 50px;
+    width: 100%;
+}
+
+.color {
+    height: 25px;
+    cursor: pointer;
+}
+
+.tool {
+    border: 1px solid #ccc;
+    padding: 0.25em 1em;
+    text-align: center;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.tool.selected {
+    background-color: #9cf;
+    border-color: #72a9ff;
+}
+
+.setting {
+    flex: 1;
+}
+
+#sidebar {
+    width: 200px;
+    flex-shrink: 0;
+    padding: 2%;
+}
+
+#sidebar > div {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+#palette {
+    display: flex;
+    flex-flow: column wrap;
+    height: 250px
+}
+
+#activeParticipants {
+    position: absolute;
+    top: 5%;
+    right: 10%;
+    width: 15%;
+}
+
+#activeParticipants > p {
+    word-wrap: break-word
+}
+
+.canvas-disabled {
+    pointer-events: none;
+}
