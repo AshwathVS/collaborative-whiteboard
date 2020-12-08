@@ -88,12 +88,12 @@ const initLeaderSelection = (roomId) => {
         if(!isOngoingLeaderSelection) {
             const randomUser = usersInRoom[roomId][Math.floor(Math.random() * 500) % length];
 
-            const voteDetail = {type: 'LEADER_SELECT', id: uuid.v1(), selectedUser: randomUser, createdAt: Date.now(), roomId: roomId};
+            const voteDetail = {id: uuid.v1(), selectedUser: randomUser, createdAt: Date.now(), roomId: roomId};
             onGoingLeaderVoteDetails[roomId] = voteDetail;
     
             const eventData = {voteType: "LEADER_SELECT", id: voteDetail.id, content: { confirmMessage: 'Do you want to choose ' + randomUser.name + ' to be the leader?'}, createdAt: Date.now()};
     
-            voteResultsStore[voteDetail.id] = { total: usersInRoom[roomId].length, positive: 0, roomId: roomId, negative: 0 };
+            voteResultsStore[voteDetail.id] = { total: usersInRoom[roomId].length, positive: 0, roomId: roomId, negative: 0, type: 'LEADER_SELECT'};
     
             io.to(roomId).emit('TO_VOTE', eventData);
         }
